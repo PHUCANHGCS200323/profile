@@ -277,12 +277,3 @@ function delete_cart_item(product_id) {
             transaction_error);
     });
 }
-
-
-
-
-
-
-
-
-

@@ -1,30 +1,30 @@
-(function($) {
+(function ($) {
     "use strict";
 
     var isMobile = {
-        Android: function() {
+        Android: function () {
             return navigator.userAgent.match(/Android/i);
         },
-        BlackBerry: function() {
+        BlackBerry: function () {
             return navigator.userAgent.match(/BlackBerry/i);
         },
-        iOS: function() {
+        iOS: function () {
             return navigator.userAgent.match(/iPhone|iPad|iPod/i);
         },
-        Opera: function() {
+        Opera: function () {
             return navigator.userAgent.match(/Opera Mini/i);
         },
-        Windows: function() {
+        Windows: function () {
             return navigator.userAgent.match(/IEMobile/i);
         },
-        any: function() {
+        any: function () {
             return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
         }
     }
 
     function backgroundImage() {
         var databackground = $('[data-background]');
-        databackground.each(function() {
+        databackground.each(function () {
             if ($(this).attr('data-background')) {
                 var image_path = $(this).attr('data-background');
                 $(this).css({
@@ -35,14 +35,14 @@
     }
 
     function parallax() {
-        $('.bg--parallax').each(function() {
+        $('.bg--parallax').each(function () {
             var el = $(this),
                 xpos = "50%",
                 windowHeight = $(window).height();
             if (isMobile.any()) {
                 $(this).css('background-attachment', 'scroll');
             } else {
-                $(window).scroll(function() {
+                $(window).scroll(function () {
                     var current = $(window).scrollTop(),
                         top = el.offset().top,
                         height = el.outerHeight();
@@ -59,7 +59,7 @@
         var toggleBtn = $('.menu-toggle'),
             sidebar = $('.header--sidebar'),
             menu = $('.menu');
-        toggleBtn.on('click', function(event) {
+        toggleBtn.on('click', function (event) {
             var self = $(this);
             self.toggleClass('active');
             $('.ps-main, .header').toggleClass('menu--active');
@@ -68,7 +68,7 @@
     }
 
     function subMenuToggle() {
-        $('body').on('click', '.header--sidebar .menu .menu-item-has-children > a', function(event) {
+        $('body').on('click', '.header--sidebar .menu .menu-item-has-children > a', function (event) {
             event.preventDefault();
             var current = $(this).parent('.menu-item-has-children')
             current.children('.sub-menu').slideToggle(350);
@@ -115,7 +115,7 @@
             scrollPosition = 0,
             headerTopHeight = $('.header .header__top').outerHeight(),
             checkpoint = 300;
-        $(window).scroll(function() {
+        $(window).scroll(function () {
             var currentPosition = $(this).scrollTop();
             if (currentPosition < scrollPosition) {
                 // On top
@@ -141,7 +141,7 @@
 
     function owlCarousel(target) {
         if (target.length > 0) {
-            target.each(function() {
+            target.each(function () {
                 var el = $(this),
                     dataAuto = el.data('owl-auto'),
                     dataLoop = el.data('owl-loop'),
@@ -206,11 +206,11 @@
             prev = container.find('.ps-owl-actions .ps-prev'),
             next = container.find('.ps-owl-actions .ps-next');
         if (container.length > 0) {
-            prev.on('click', function(e) {
+            prev.on('click', function (e) {
                 e.preventDefault();
                 owl.trigger('prev.owl.carousel', [300]);
             })
-            next.on('click', function(e) {
+            next.on('click', function (e) {
                 e.preventDefault();
                 owl.trigger('next.owl.carousel');
             });
@@ -219,11 +219,11 @@
 
     function countDown() {
         var time = $(".ps-countdown");
-        time.each(function() {
+        time.each(function () {
             var el = $(this),
                 value = $(this).data('time');
             var countDownDate = new Date(value).getTime();
-            var timeout = setInterval(function() {
+            var timeout = setInterval(function () {
                 var now = new Date().getTime(),
                     distance = countDownDate - now;
                 var days = Math.floor(distance / (1000 * 60 * 60 * 24)),
@@ -245,14 +245,14 @@
     function masonry() {
         var masonryTrigger = $('.ps-masonry');
         if (masonryTrigger.length > 0) {
-            masonryTrigger.imagesLoaded(function() {
+            masonryTrigger.imagesLoaded(function () {
                 masonryTrigger.isotope({
                     columnWidth: '.grid-sizer',
                     itemSelector: '.grid-item'
                 });
             });
             var filters = masonryTrigger.closest('.masonry-root').find('.ps-masonry__filter > li > a');
-            filters.on('click', function() {
+            filters.on('click', function () {
                 var selector = $(this).attr('data-filter');
                 filters.find('a').removeClass('current');
                 $(this).parent('li').addClass('current');
@@ -271,17 +271,17 @@
     }
 
 
-    
+
     function productVariantsAjax() {
         var selector = $('.ps-btn'),
             shoe = $('.ps-shoe');
-        shoe.on('mouseenter', function() {
+        shoe.on('mouseenter', function () {
             var variants = $(this).find('.ps-shoe__variant');
             if (variants.children().length === 0) {
-                setTimeout(function() {
+                setTimeout(function () {
                     $.ajax({
                         url: "../js/shoe-variants.js",
-                        success: function(data) {
+                        success: function (data) {
                             var images = JSON.parse(data);
                             for (var i in images) {
                                 $('<img src=' + images[i] + '>').appendTo(variants);
@@ -328,7 +328,7 @@
 
     function productThumbnailChange() {
         var originImageData;
-        $('.ps-shoe__variants').on('mouseenter', 'img', function() {
+        $('.ps-shoe__variants').on('mouseenter', 'img', function () {
             var image = $(this).attr('src');
             var originImage = $(this).closest('.ps-shoe').find('.ps-shoe__thumbnail img');
             originImageData = originImage.attr('src');
@@ -370,7 +370,7 @@
     }
 
     function zoomAction() {
-        $('.zoom').each(function() {
+        $('.zoom').each(function () {
             if ($(this).parent().hasClass('slick-active')) {
                 $(this).elevateZoom({
                     responsive: true,
@@ -430,10 +430,10 @@
                 },
             ]
         });
-        primary.on('afterChange', function(event, slick, currentSlide) {
+        primary.on('afterChange', function (event, slick, currentSlide) {
             zoomAction();
         });
-        primary.on('beforeChange', function(event, slick, currentSlide) {
+        primary.on('beforeChange', function (event, slick, currentSlide) {
             $('.zoomContainer').remove();
         });
     }
@@ -472,7 +472,7 @@
                 step: step,
                 range: true,
                 values: [defaultMinValue, defaultMaxValue],
-                slide: function(event, ui) {
+                slide: function (event, ui) {
                     var $this = $(this),
                         values = ui.values;
 
@@ -579,7 +579,7 @@
             var stickyHeight = widget.height(),
                 sidebarTop = widget.offset().top;
         }
-        $(window).scroll(function() {
+        $(window).scroll(function () {
             if (widget.length > 0) {
                 var scrollTop = $(window).scrollTop();
                 if (sidebarTop < scrollTop) {
@@ -596,7 +596,7 @@
         });
     }
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         backgroundImage();
         parallax();
         rating();
@@ -621,11 +621,11 @@
         filterSlider();
     });
 
-    $(window).on('load', function() {
+    $(window).on('load', function () {
         $('.ps-loading').addClass('loaded');
     });
 
-    $(window).on('load resize', function() {
+    $(window).on('load resize', function () {
         resizeHeader()
     });
 
