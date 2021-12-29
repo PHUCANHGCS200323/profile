@@ -110,16 +110,16 @@ function fetch_database() {
     tx.executeSql(query, ["phucanh@gmail.com", "190202"], fetch_transaction_success("phucanh@gmail.com"), transaction_error);
 
     query = `INSERT INTO product (name, img, price, category_id) VALUES(?,?,?,?)`;
-    tx.executeSql(query, ["Air Jordan 7 Retro 1", "/images/shoe/1.jpeg", 1200000, 1], fetch_transaction_success("Product 01"), transaction_error);
-    tx.executeSql(query, ["Air Jordan 7 Retro 2", "/images/shoe/2.jpeg", 1200000, 1], fetch_transaction_success("Product 02"), transaction_error);
-    tx.executeSql(query, ["Air Jordan 7 Retro 3", "/images/shoe/3.jpeg", 1200000, 4], fetch_transaction_success("Product 03"), transaction_error);
-    tx.executeSql(query, ["Air Jordan 7 Retro 4", "/images/shoe/4.jpeg", 5000000, 1], fetch_transaction_success("Product 04"), transaction_error);
-    tx.executeSql(query, ["Air Jordan 7 Retro 6", "/images/shoe/6.jpeg", 3400000, 2], fetch_transaction_success("Product 06"), transaction_error);
-    tx.executeSql(query, ["Air Jordan 7 Retro 7", "/images/shoe/13.jpeg", 6500000, 2], fetch_transaction_success("Product 07"), transaction_error);
-    tx.executeSql(query, ["Air Jordan 7 Retro 8", "/images/shoe/14.jpeg", 3000000, 3], fetch_transaction_success("Product 08"), transaction_error);
-    tx.executeSql(query, ["Air Jordan 7 Retro 9", "/images/shoe/9.jpeg", 4000000, 3], fetch_transaction_success("Product 09"), transaction_error);
-    tx.executeSql(query, ["Air Jordan 7 Retro 10", "/images/shoe/16.jpeg", 5000000, 3], fetch_transaction_success("Product 10"), transaction_error);
-    tx.executeSql(query, ["Air Jordan 7 Retro 11", "/images/shoe/15.jpeg", 7000000, 3], fetch_transaction_success("Product 11"), transaction_error);
-    tx.executeSql(query, ["Air Jordan 7 Retro 12", "/images/shoe/12.jpeg", 4000000, 3], fetch_transaction_success("Product 12"), transaction_error);
+    tx.executeSql(query, ["Air Jordan 7 Retro 1", "images/shoe/1.jpeg", 1200000, 1], fetch_transaction_success("Product 01"), transaction_error);
+    tx.executeSql(query, ["Air Jordan 7 Retro 2", "images/shoe/2.jpeg", 1200000, 1], fetch_transaction_success("Product 02"), transaction_error);
+    tx.executeSql(query, ["Air Jordan 7 Retro 3", "images/shoe/3.jpeg", 1200000, 4], fetch_transaction_success("Product 03"), transaction_error);
+    tx.executeSql(query, ["Air Jordan 7 Retro 4", "images/shoe/4.jpeg", 5000000, 1], fetch_transaction_success("Product 04"), transaction_error);
+    tx.executeSql(query, ["Air Jordan 7 Retro 6", "images/shoe/6.jpeg", 3400000, 2], fetch_transaction_success("Product 06"), transaction_error);
+    tx.executeSql(query, ["Air Jordan 7 Retro 7", "images/shoe/13.jpeg", 6500000, 2], fetch_transaction_success("Product 07"), transaction_error);
+    tx.executeSql(query, ["Air Jordan 7 Retro 8", "images/shoe/14.jpeg", 3000000, 3], fetch_transaction_success("Product 08"), transaction_error);
+    tx.executeSql(query, ["Air Jordan 7 Retro 9", "images/shoe/9.jpeg", 4000000, 3], fetch_transaction_success("Product 09"), transaction_error);
+    tx.executeSql(query, ["Air Jordan 7 Retro 10", "images/shoe/16.jpeg", 5000000, 3], fetch_transaction_success("Product 10"), transaction_error);
+    tx.executeSql(query, ["Air Jordan 7 Retro 11", "images/shoe/15.jpeg", 7000000, 3], fetch_transaction_success("Product 11"), transaction_error);
+    tx.executeSql(query, ["Air Jordan 7 Retro 12", "images/shoe/12.jpeg", 4000000, 3], fetch_transaction_success("Product 12"), transaction_error);
   });
 }

@@ -101,7 +101,6 @@
             $('.menu-toggle').removeClass('active');
             $('.ps-sticky').removeClass('desktop');
         }
-        /*logo*/
         if (windowWidth < 480) {
             $('.ps-search--header').prependTo('.header--sidebar');
         }
@@ -118,17 +117,16 @@
         $(window).scroll(function () {
             var currentPosition = $(this).scrollTop();
             if (currentPosition < scrollPosition) {
-                // On top
+
                 if (currentPosition == 0) {
                     header.removeClass('navigation--sticky navigation--unpin navigation--pin');
                     header.css("margin-top", 0);
                 }
-                // on scrollUp
                 else if (currentPosition > checkpoint) {
                     header.removeClass('navigation--unpin').addClass('navigation--sticky navigation--pin');
                 }
             }
-            // On scollDown
+
             else {
                 if (currentPosition > checkpoint) {
                     header.addClass('navigation--unpin').removeClass('navigation--pin');
@@ -137,25 +135,6 @@
             }
             scrollPosition = currentPosition;
         });
-    }
-
-
-
-    function navigateOwlCarousel() {
-        var container = $('.ps-owl-root'),
-            owl = $('.ps-owl--colection'),
-            prev = container.find('.ps-owl-actions .ps-prev'),
-            next = container.find('.ps-owl-actions .ps-next');
-        if (container.length > 0) {
-            prev.on('click', function (e) {
-                e.preventDefault();
-                owl.trigger('prev.owl.carousel', [300]);
-            })
-            next.on('click', function (e) {
-                e.preventDefault();
-                owl.trigger('next.owl.carousel');
-            });
-        }
     }
 
     function countDown() {
@@ -310,29 +289,6 @@
         });
     }
 
-    function zoomAction() {
-        $('.zoom').each(function () {
-            if ($(this).parent().hasClass('slick-active')) {
-                $(this).elevateZoom({
-                    responsive: true,
-                    zoomType: "inner",
-                    zoomWindowWidth: 600,
-                    zoomWindowHeight: 600
-                });
-            }
-        });
-    }
-
-    function zoomInit() {
-        var zoom = $('.ps-product__image .item').first().find('.zoom');
-        var primary = $('.ps-product__image .item.slick-active').first().children('.zoom');
-        primary.elevateZoom({
-            responsive: true,
-            zoomType: "inner",
-            zoomWindowWidth: 600,
-            zoomWindowHeight: 600
-        });
-    }
 
     function slickConfig() {
         var primary = $('.ps-product__image'),
@@ -386,16 +342,7 @@
         });
     }
 
-    function magnificPopup() {
-        $('.popup-youtube').magnificPopup({
-            disableOn: 700,
-            type: 'iframe',
-            mainClass: 'mfp-fade',
-            removalDelay: 160,
-            preloader: false,
-            fixedContentPos: false
-        });
-    }
+
 
     function filterSlider() {
         var el = $('.ac-slider');
@@ -431,85 +378,7 @@
         }
     }
 
-    function revolution() {
-        if ($("#home-banner").revolution == undefined) {
-            revslider_showDoubleJqueryError("#rev_slider_1059_1");
-        }
-        else {
-            $("#home-banner").show().revolution({
-                sliderType: "standard",
-                jsFileLocation: "plugins/revolution/js/",
-                dottedOverlay: "none",
-                delay: 5000,
-                navigation: {
-                    keyboardNavigation: "on",
-                    keyboard_direction: "horizontal",
-                    mouseScrollNavigation: "off",
-                    mouseScrollReverse: "default",
-                    onHoverStop: "on",
-                    bullets: {
-                        enable: true,
-                        style: 'hermes',
-                        tmp: '',
-                        direction: 'horizontal',
-                        rtl: false,
-                        container: 'slider',
-                        h_align: 'center',
-                        v_align: 'bottom',
-                        h_offset: 0,
-                        v_offset: 20,
-                        space: 5,
 
-                        hide_onleave: false,
-                        hide_onmobile: false,
-                        hide_under: 0,
-                        hide_over: 9999,
-                        hide_delay: 200,
-                        hide_delay_mobile: 1200
-                    },
-                    touch: {
-                        touchenabled: "on",
-                        swipe_threshold: 75,
-                        swipe_min_touches: 50,
-                        swipe_direction: "horizontal",
-                        drag_block_vertical: false
-                    },
-                },
-                responsiveLevels: [1440, 1170, 992, 768],
-                visibilityLevels: [1440, 1170, 992, 768],
-                gridWidth: [1440, 1170, 992, 768],
-                gridheight: [750, 700, 650, 600],
-                lazyType: "none",
-                parallax: {
-                    type: "scroll",
-                    origo: "slidercenter",
-                    speed: 1000,
-                    levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 46, 47, 48, 49, 50, 100, 55],
-                    type: "scroll",
-                },
-                shadow: 0,
-                spinner: "off",
-                stopLoop: "off",
-                shuffle: "off",
-                autoHeight: "off",
-                fullScreenAutoWidth: "off",
-                fullScreenAlignForce: "off",
-                fullScreenOffsetContainer: "",
-                fullScreenOffset: "60px",
-                disableProgressBar: "on",
-                hideThumbsOnMobile: "off",
-                hideSliderAtLimit: 0,
-                hideCaptionAtLimit: 0,
-                hideAllCaptionAtLilmit: 0,
-                debugMode: false,
-                fallbacks: {
-                    simplifyAll: "off",
-                    nextSlideOnWindowFocus: "off",
-                    disableFocusListener: false,
-                }
-            });
-        }
-    }
 
     function stickyWidget() {
         // on scroll move the sidebar
